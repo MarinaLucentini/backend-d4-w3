@@ -1,8 +1,6 @@
 package marinalucentini.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.DiscriminatorValue;
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 import marinalucentini.enums.GenereConcerto;
 
 import java.time.LocalDate;
@@ -10,7 +8,8 @@ import java.time.LocalDate;
 @Entity
 @DiscriminatorValue("concerto")
 public class Concerto extends Evento {
-    @Column(nullable = false)
+    @Column(nullable = false, name = "genere_concerto")
+    @Enumerated(EnumType.STRING)
     private GenereConcerto genereConcerto;
     @Column(nullable = false)
     private boolean in_streaming;

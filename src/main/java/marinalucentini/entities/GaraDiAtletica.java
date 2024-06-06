@@ -1,8 +1,6 @@
 package marinalucentini.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.DiscriminatorValue;
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -11,8 +9,10 @@ import java.util.List;
 @DiscriminatorValue("gara_di_atletica")
 public class GaraDiAtletica extends Evento {
     @Column(nullable = false)
+    @OneToMany(mappedBy = "garaDiAtletica")
     private List<Persona> atleti;
-  
+    @OneToOne
+    @JoinColumn(name = "vincitore_id")
     private Persona vincitore;
 
     public GaraDiAtletica() {

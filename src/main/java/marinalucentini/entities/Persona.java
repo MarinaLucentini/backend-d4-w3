@@ -28,6 +28,10 @@ public class Persona {
     @OneToMany(mappedBy = "partecipazioni")
     private List<Partecipazioni> partecipazioniList;
 
+    @ManyToOne
+    @JoinColumn(name = "garaDiAtletica_id")
+    private GaraDiAtletica garaDiAtletica;
+
     public Persona() {
 
     }

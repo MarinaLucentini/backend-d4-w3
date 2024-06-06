@@ -25,7 +25,7 @@ public abstract class Evento {
 
     private String descrizione;
 
-    @Column(name = "tipo_evento", nullable = false)
+    @Column(name = "tipo_evento", nullable = false, insertable = false, updatable = false)
     @Enumerated(EnumType.STRING)
     private tipoEvento tipoEvento;
 
@@ -35,6 +35,7 @@ public abstract class Evento {
     @JoinColumn(name = "location_id", unique = true, nullable = false)
     private Location location;
     @OneToMany(mappedBy = "evento")
+
 
     private List<Partecipazioni> partecipazioniList;
 
