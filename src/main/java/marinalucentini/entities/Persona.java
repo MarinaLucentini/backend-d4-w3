@@ -12,13 +12,17 @@ import java.util.UUID;
 public class Persona {
     @Id
     @GeneratedValue
+    @Column(nullable = false, unique = true)
     private UUID id;
 
-
+    @Column(nullable = false)
     private String nome;
+    @Column(nullable = false)
     private String cognome;
+
     private String email;
     private LocalDate data_di_nascita;
+    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private SessoType sessoType;
     @OneToMany(mappedBy = "partecipazioni")

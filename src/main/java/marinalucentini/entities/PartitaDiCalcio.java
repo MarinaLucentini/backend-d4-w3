@@ -19,6 +19,12 @@ public class PartitaDiCalcio extends Evento {
     @Column(nullable = false)
     private int numeroGolSquadraOspite;
 
+    public PartitaDiCalcio() {
+
+    }
+
+    ;
+
     public PartitaDiCalcio(String titolo, LocalDate dataevento, String descrizione, marinalucentini.enums.tipoEvento tipoEvento, int numeroMassimoPartecipanti, Location location, String squadraDiCasa, String squadraOspite) {
         super(titolo, dataevento, descrizione, tipoEvento, numeroMassimoPartecipanti, location);
         this.squadraDiCasa = squadraDiCasa;
@@ -69,7 +75,7 @@ public class PartitaDiCalcio extends Evento {
     public String toString() {
         return "PartitaDiCalcio{" +
                 "squadraDiCasa='" + squadraDiCasa + '\'' +
-                ", squadaOspite='" + squadaOspite + '\'' +
+                ", squadaOspite='" + squadraOspite + '\'' +
                 ", squadraVincente='" + squadraVincente + '\'' +
                 ", numeroGolSquadraDiCasa=" + numeroGolSquadraDiCasa +
                 ", numeroGolSquadraOspite=" + numeroGolSquadraOspite +

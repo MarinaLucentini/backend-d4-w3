@@ -1,5 +1,6 @@
 package marinalucentini.entities;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 
@@ -9,8 +10,13 @@ import java.util.List;
 @Entity
 @DiscriminatorValue("gara_di_atletica")
 public class GaraDiAtletica extends Evento {
+    @Column(nullable = false)
     private List<Persona> atleti;
+  
     private Persona vincitore;
+
+    public GaraDiAtletica() {
+    }
 
     public GaraDiAtletica(String titolo, LocalDate dataevento, String descrizione, marinalucentini.enums.tipoEvento tipoEvento, int numeroMassimoPartecipanti, Location location, List<Persona> atleti) {
         super(titolo, dataevento, descrizione, tipoEvento, numeroMassimoPartecipanti, location);
