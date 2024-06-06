@@ -32,7 +32,7 @@ public abstract class Evento {
     @Column(name = "numero_massimo_partecipanti", nullable = false)
     private int numeroMassimoPartecipanti;
     @ManyToOne
-    @JoinColumn(name = "location_id", unique = true, nullable = false)
+    @JoinColumn(name = "location_id", nullable = false)
     private Location location;
     @OneToMany(mappedBy = "evento")
 
