@@ -9,24 +9,30 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "evento")
+@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn(name = "tipo_evento")
 
-public class Evento {
+public abstract class Evento {
     @Id
     @GeneratedValue
+    @Column(nullable = false, unique = true)
     private UUID id;
-    @Column(name = "title")
+    @Column(nullable = false)
     private String titolo;
-    @Column(name = "date")
+
+    @Column(name = "data_evento", nullable = false)
     private LocalDate dataevento;
-    @Column(name = "description")
+
     private String descrizione;
-    @Column(name = "type")
+
+    @Column(name = "tipo_evento", nullable = false)
     @Enumerated(EnumType.STRING)
     private tipoEvento tipoEvento;
-    @Column(name = "maxusers")
+
+    @Column(name = "numero_massimo_partecipanti", nullable = false)
     private int numeroMassimoPartecipanti;
     @ManyToOne
-    @JoinColumn(name = "location_id", unique = true)
+    @JoinColumn(name = "location_id", unique = true, nullable = false)
     private Location location;
     @OneToMany(mappedBy = "evento")
 
