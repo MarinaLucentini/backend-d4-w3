@@ -12,6 +12,7 @@ public class GaraDiAtletica extends Evento {
     @OneToMany(mappedBy = "garaDiAtletica")
     private List<Persona> atleti;
     @OneToOne
+    //onetomany
     @JoinColumn(name = "vincitore_id")
     private Persona vincitore;
 

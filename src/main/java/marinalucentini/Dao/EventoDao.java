@@ -2,9 +2,12 @@ package marinalucentini.Dao;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.TypedQuery;
+import marinalucentini.entities.Concerto;
 import marinalucentini.entities.Evento;
 import marinalucentini.exception.eventoException;
 
+import java.util.List;
 import java.util.UUID;
 
 public class EventoDao {
@@ -35,5 +38,11 @@ public class EventoDao {
         em.remove(found);
         transaction.commit();
         System.out.println("L'evento " + found.getTitolo() + "è stato eliminato");
+    }
+
+    public List<Concerto> getConcertiInStreaming(boolean in_streaming) {
+        TypedQuery<Concerto> query = em.createQuery("SELECT c FROM Concerto c WHERE c.in_streaming = :in_streaming", Concerto.class);
+        query.setParameter("in_streaming", in_streaming);
+        return query.getResultList();
     }
 }

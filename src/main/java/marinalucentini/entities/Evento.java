@@ -10,7 +10,7 @@ import java.util.UUID;
 @Entity
 @Table(name = "evento")
 @Inheritance(strategy = InheritanceType.JOINED)
-@DiscriminatorColumn(name = "tipo_evento")
+@DiscriminatorColumn(name = "tipo_evento_discriminante")
 
 public abstract class Evento {
     @Id
